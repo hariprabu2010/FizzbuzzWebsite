@@ -31,7 +31,6 @@ namespace FizzBuzzBL
 
         public FizzBuzzDomainModel Generate(int inputNumber)
         {
-            //var displayList = new WizzWuzzPattern(new FizzBuzzPattern(new BuzzPattern(new FizzPattern(new CreateList()))));
             this.fizzPattern.SetComponent(this.createList);
             this.buzzPattern.SetComponent(this.fizzPattern);
             this.fizzbuzzPattern.SetComponent(this.buzzPattern);
