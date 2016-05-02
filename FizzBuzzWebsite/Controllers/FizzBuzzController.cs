@@ -8,17 +8,17 @@ namespace FizzBuzzWebsite.Controllers
     using System.Configuration;
     using System.Linq;
 
-    public class AvivaFizzBuzzController : Controller
+    public class FizzBuzzController : Controller
     {
         private IFizzBuzzManager _fizzBuzzManager;
         MapperClass mappingClass = new MapperClass();
 
-        public AvivaFizzBuzzController(IFizzBuzzManager fizzBuzzManager)
+        public FizzBuzzController(IFizzBuzzManager fizzBuzzManager)
         {
             this._fizzBuzzManager = fizzBuzzManager;
         }
         //
-        // GET: /AvivaFizzBuzz/
+        // GET: /FizzBuzz/
         /// <summary>
         /// Get Method - returns empty view
         /// </summary>
