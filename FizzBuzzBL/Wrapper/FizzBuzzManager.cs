@@ -18,10 +18,10 @@ namespace FizzBuzzBL
         private AbstractPattern buzzPattern;
         private AbstractPattern fizzbuzzPattern;
 
-        public FizzBuzzManager([DependencyAttribute("CreateList")]ICreateList createList,
-                                   [DependencyAttribute("FizzPattern")]AbstractPattern fizzPattern,
-                                   [DependencyAttribute("BuzzPattern")]AbstractPattern buzzPattern,
-                                   [DependencyAttribute("FizzBuzzPattern")]AbstractPattern fizzbuzzPattern)
+        public FizzBuzzManager([Dependency("CreateList")]ICreateList createList,
+                                   [Dependency("FizzPattern")]AbstractPattern fizzPattern,
+                                   [Dependency("BuzzPattern")]AbstractPattern buzzPattern,
+                                   [Dependency("FizzBuzzPattern")]AbstractPattern fizzbuzzPattern)
         {
             this.createList = createList;
             this.fizzPattern = fizzPattern;
