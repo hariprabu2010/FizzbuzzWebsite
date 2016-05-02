@@ -17,19 +17,16 @@ namespace FizzBuzzBL
         private AbstractPattern fizzPattern;
         private AbstractPattern buzzPattern;
         private AbstractPattern fizzbuzzPattern;
-        private AbstractPattern wizzwuzzPattern;
 
         public FizzBuzzManager([Dependency("CreateList")]ICreateList createList,
                                    [Dependency("FizzPattern")]AbstractPattern fizzPattern,
                                    [Dependency("BuzzPattern")]AbstractPattern buzzPattern,
-                                   [Dependency("FizzBuzzPattern")]AbstractPattern fizzbuzzPattern,
-                                   [Dependency("WizzWuzzPattern")]AbstractPattern wizzwuzzPattern)
+                                   [Dependency("FizzBuzzPattern")]AbstractPattern fizzbuzzPattern)
         {
             this.createList = createList;
             this.fizzPattern = fizzPattern;
             this.buzzPattern = buzzPattern;
             this.fizzbuzzPattern = fizzbuzzPattern;
-            this.wizzwuzzPattern = wizzwuzzPattern;
         }
 
         public FizzBuzzDomainModel Generate(int inputNumber)
@@ -38,8 +35,7 @@ namespace FizzBuzzBL
             this.fizzPattern.SetComponent(this.createList);
             this.buzzPattern.SetComponent(this.fizzPattern);
             this.fizzbuzzPattern.SetComponent(this.buzzPattern);
-            this.wizzwuzzPattern.SetComponent(this.fizzbuzzPattern);
-            var returnList = this.wizzwuzzPattern.Generate(inputNumber);
+            var returnList = this.fizzbuzzPattern.Generate(inputNumber);
             return returnList;
         }
     }
