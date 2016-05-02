@@ -13,6 +13,11 @@ namespace FizzBuzzWebsite.Controllers
         private IFizzBuzzManager _fizzBuzzManager;
         MapperClass mappingClass = new MapperClass();
 
+        public FizzBuzzController()
+        {
+            
+        }
+
         public FizzBuzzController(IFizzBuzzManager fizzBuzzManager)
         {
             this._fizzBuzzManager = fizzBuzzManager;
