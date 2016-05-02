@@ -1,0 +1,41 @@
+﻿@model FizzBuzzWebsite.Models.FizzBuzzViewModel
+
+<link href="~/Content/AvivaFizzBuzz.css" rel="stylesheet" />
+<div id="FizzBuzzDisplay">
+     
+@if (Model != null && Model.DisplayList != null)
+    { 
+        @Html.Hidden("PageCount", Model.PageCount)
+        @Html.Hidden("PageSize", Model.PageSize)
+        @Html.Hidden("CurrentPageIndex", Model.CurrentPageIndex)
+         <table>         
+            @foreach (FizzBuzzWebsite.Models.FizzBuzzData item in @Model.FizzBuzzPagedList)
+            {
+                <tr>
+                    <td class="@item.DisplayText">
+                        @item.DisplayText
+                    </td>
+                </tr>
+                
+            }
+
+             <tr>
+                 <td>
+                     @if ((Model.CurrentPageIndex) > 0)
+                     {
+                         <a href="#" data-pageindex="@(Model.CurrentPageIndex - 1)"
+                               class="pager"><<</a>
+                     }
+                     
+                     <span>@(Model.CurrentPageIndex+1)</span> 
+                       @if ((Model.CurrentPageIndex + 1) < Model.PageCount)
+                     {
+                         <a href="#" data-pageindex="@(Model.CurrentPageIndex + 1)"
+                               class="pager">>></a>
+                     }       
+                   
+                     </td>
+                 </tr>
+         </table>
+    }
+</div>

@@ -1,0 +1,33 @@
+﻿@model FizzBuzzWebsite.Models.FizzBuzzViewModel
+@{
+    ViewBag.Title = "Display";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>FizzBuzz Application</h2>
+<link href="~/Content/FizzBuzz.css" rel="stylesheet" />
+@section Pagerscript {
+ <script>
+         $(document).ready(function () {
+             $(".pager").click(function (evt) {
+                 var pageindex = $(evt.target).data("pageindex");
+                 $("#CurrentPageIndex").val(pageindex);
+                 evt.preventDefault();
+                 $("form").submit();
+             });
+         });
+    </script>
+    }
+@using (Html.BeginForm("Display", "FizzBuzz"))
+{
+    @Html.ValidationSummary(true)
+    @Html.EditorFor(model => model.InputNumber)
+    <input type ="submit" value ="Show" />
+    @Html.ValidationMessageFor(model => model.InputNumber)
+
+    if(@Model !=null)
+    {
+        @Html.Partial("DisplayFizzBuzz",Model)
+    }
+}
+
