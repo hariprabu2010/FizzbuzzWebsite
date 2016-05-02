@@ -63,7 +63,7 @@
     <Compile Include="Pattern\FizzBuzzPattern.cs" />
     <Compile Include="Pattern\FizzPattern.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Wrapper\FizzBuzzManager.cs" />
+    <!-- <Compile Include="Wrapper\FizzBuzzManager.cs" /> -->
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
